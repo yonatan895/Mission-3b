@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout layout;
-    int sum = 0;
+    double sum = 0;
     double avg = 0;
     List<EditText> editList = new ArrayList<>();
     ArrayList<String> list = new ArrayList<>();
@@ -49,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
                             sum += num;
                         }
                         avg = sum/6;
-                        Intent intent = new Intent(String.valueOf(getBaseContext()));
+                        String txt_avg = String.valueOf(avg);
+                        Intent intent = new Intent(getBaseContext(), SecondActivity.class);
                         intent.putStringArrayListExtra("LIST", list);
+                        intent.putExtra("avg", txt_avg);
+                        startActivity(intent);
 
                     }
 
